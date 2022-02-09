@@ -17,4 +17,5 @@ For info about that and getting started with the Python BigQuery library read [h
 ## Settings for the script: 
 
 **project_id:** Your GCP project id, where the datasets are. 
+
 **stitch_datasets:** A list of your stitch dataset names in BigQuery
