@@ -54,8 +54,8 @@ for dataset in stitch_datasets:
                   table_name = "{table_name}"
                 """.format(project_id=project_id,dataset_name = dataset, table_name = table)
                 primary_keys = client.query(query).to_dataframe()
-                # Save it as a comma seperated string
-                cluster_by_keys = ", ".join(primary_keys['column_name'].tolist())
+                # Save it as a comma seperated string - We make sure a max of 4 keys are selected as BigQuery allows max 4 cluster keys 
+                cluster_by_keys = ", ".join(primary_keys['column_name'][0:4].tolist())
                 # If the table has any primary keys
                 if len(cluster_by_keys) > 0:
                     # Create the table as a partitioned and clusered by table
